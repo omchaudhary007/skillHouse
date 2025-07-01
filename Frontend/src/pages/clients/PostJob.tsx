@@ -101,7 +101,7 @@ const PostJob = () => {
       endDate: formData.endDate ? new Date(formData.endDate) : undefined,
     };
     try {
-      const response = await createJob(jobData);
+      await createJob(jobData);
       toast.success("Job posted successfully!");
       setTimeout(() => navigate("/client/home"), 2000);
     } catch (error: any) {

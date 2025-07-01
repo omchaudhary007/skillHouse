@@ -122,7 +122,7 @@ const EditJob = () => {
       endDate: formData.endDate,
     };
     try {
-      const response = await updateJob(id!, jobData);
+      await updateJob(id!, jobData);
       toast.success("Job updated successfully!");
       setTimeout(() => navigate(-1), 1000);
     } catch (error: any) {
