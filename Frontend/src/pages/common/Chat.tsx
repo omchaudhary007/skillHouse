@@ -90,8 +90,7 @@ const Chat = () => {
     socket.emit("authenticate", userId);
     socket.emit("getUnreadCount", userId);
 
-    socket.on("userStatus", ({ userId, status }) => {
-    });
+    socket.on("userStatus", () => {});
 
     return () => {
       socket.off("userStatus");
@@ -317,8 +316,7 @@ const Chat = () => {
       }
     );
 
-    socket.on("messageError", ({ message }) => {
-    });
+    socket.on("messageError", () => {});
 
     socket.on("messageRead", ({ messageId, readAt }) => {
       setMessages((prev) =>
