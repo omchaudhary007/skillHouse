@@ -41,14 +41,11 @@ const Otp = () => {
 
   const handleSubmit = async () => {
     try {
-      console.log(`Sending OTP: ${otp} for email: ${email}`);
-      console.log("Final userData before API call:", userData);
       setError(null);
       await verifyOtp(email, otp, userData);
       toast.success("OTP verified successfully");
       navigate("/login");
     } catch (error: any) {
-      console.log("OTP submit error:", error.response?.data);
       setError(error.error || "Something went wrong");
     }
   };

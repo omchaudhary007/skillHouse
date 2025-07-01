@@ -75,7 +75,6 @@ const FreelancerProfile = () => {
 
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    console.log("File selected :", file);
     if (!file || !userId) return;
 
     try {

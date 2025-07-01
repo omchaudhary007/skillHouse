@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { CheckCircle, Briefcase, DollarSign, Search } from "lucide-react";
+import { CheckCircle, Briefcase, DollarSign } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import image1 from '../../assets/image1.jpg';
 import image2 from '../../assets/image2.jpg';
@@ -7,7 +7,6 @@ import image3 from '../../assets/image3.jpg';
 import landing from '../../assets/landing.jpg'
 import { Button } from "../ui/button";
 import ChatBot from "./ChatBot";
-import { Input } from "../ui/input";
 import { useNavigate } from 'react-router-dom';
 
 const Body = () => {

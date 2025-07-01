@@ -89,10 +89,8 @@ const Chat = () => {
 
     socket.emit("authenticate", userId);
     socket.emit("getUnreadCount", userId);
-    console.log("✅ Socket authenticated:", userId);
 
     socket.on("userStatus", ({ userId, status }) => {
-      console.log(`User ${userId} is now ${status}`);
     });
 
     return () => {
@@ -105,18 +103,15 @@ const Chat = () => {
     if (!userId) return;
 
     socket.emit("getConversations", userId);
-    console.log(conversations);
 
     socket.on(
       "conversations",
       (conversationsWithDetails: ConversationType[]) => {
-        console.log("✅ Conversations fetched:", conversationsWithDetails);
         setConversations(conversationsWithDetails);
       }
     );
 
     socket.on("conversationError", ({ message }) => {
-      console.error("❌ Conversation error:", message);
       setError(message);
     });
 
@@ -149,11 +144,9 @@ const Chat = () => {
         if (role === "client") {
           const res = await getClientContracts(userId);
           contracts = res.data || [];
-          console.log("contract clients fetched = ", contracts);
         } else if (role === "freelancer") {
           const res = await getContracts(userId);
           contracts = res.contracts || [];
-          console.log("freelancer contracts fetched = ", contracts);
         }
 
         const activeContracts = contracts.filter(
@@ -214,7 +207,6 @@ const Chat = () => {
 
         setLoading(false);
       } catch (err) {
-        console.error("❌ Failed to init chat:", err);
         setError("Failed to initialize chat.");
         setLoading(false);
       }
@@ -229,7 +221,6 @@ const Chat = () => {
 
   useEffect(() => {
     socket.on("chatInitialized", ({ conversationId, messages }) => {
-      console.log("✅ Chat initialized:", conversationId);
       setConversationId(conversationId);
       setMessages(messages);
       if (receiverId) {
@@ -241,7 +232,6 @@ const Chat = () => {
     });
 
     socket.on("chatError", ({ message }) => {
-      console.error("❌ Chat error:", message);
       setError(message);
     });
 
@@ -328,7 +318,6 @@ const Chat = () => {
     );
 
     socket.on("messageError", ({ message }) => {
-      console.error("❌ Message error:", message);
     });
 
     socket.on("messageRead", ({ messageId, readAt }) => {
@@ -522,7 +511,6 @@ const Chat = () => {
         fileInputRef.current.value = "";
       }
     } catch (error) {
-      console.error("Error uploading media:", error);
       toast.error("Failed to upload media");
     } finally {
       setIsUploading(false);
@@ -581,7 +569,6 @@ const Chat = () => {
             {/* Users List */}
             {role === "client" && (
               <div className="p-4">
-                {/* <h3 className="text-sm font-medium dark:text-gray-300 text-gray-900 mb-3">Your Freelancers</h3> */}
                 <div className="space-y-2">
                   {filterUsers(freelancers)
                     .sort((a, b) => {
@@ -757,9 +744,6 @@ const Chat = () => {
                         ? freelancers.find((f) => f._id === receiverId)?.name
                         : clients.find((c) => c._id === receiverId)?.name}
                     </h3>
-                    {/* <p className="text-xs text-gray-400">
-                                            {role === "client" ? "Freelancer" : "Client"}
-                                        </p> */}
                   </div>
                 </div>
               </div>
@@ -1030,12 +1014,6 @@ const Chat = () => {
                     </div>
                   </PopoverContent>
                 </Popover>
-                {/* <button
-                                    onClick={() => setShowEmojiPicker(!showEmojiPicker)}
-                                    className="text-gray-600 dark:text-gray-300"
-                                >
-                                    <Smile className="h-5 w-5" />
-                                </button> */}
 
                 <Input
                   placeholder="Type a message"

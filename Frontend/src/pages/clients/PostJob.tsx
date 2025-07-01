@@ -102,7 +102,6 @@ const PostJob = () => {
     };
     try {
       const response = await createJob(jobData);
-      console.log(response);
       toast.success("Job posted successfully!");
       setTimeout(() => navigate("/client/home"), 2000);
     } catch (error: any) {
