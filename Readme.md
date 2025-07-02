@@ -1,9 +1,10 @@
 # Skillhouse 🧑‍💻💼
-
-![Landing Page](landingPage.png "Landing page of Skillhouse")
+- 🌐 **Live Website**: [https://skillhouse-sable.vercel.app/](https://skillhouse-sable.vercel.app/)
+- 🎥 **Video Walkthrough**: [Watch on YouTube](https://www.youtube.com/watch?v=8DnXAKwpsdE)
 
 **Skillhouse** is a modern freelance marketplace and project management platform built with the **MERN stack**. It connects **Freelancers**, **Clients**, and **Admins** for seamless project collaboration, secure payments, and efficient communication.
 
+![Landing Page](landingPage.png "Landing page of Skillhouse")
 ---
 
 ## 🚀 Features
@@ -50,7 +51,7 @@
 - **Styling**: TailwindCSS + Shadcn  
 - **Authentication**: JSON Web Tokens (JWT)  
 - **Architecture**: Repository Pattern  
-- **Others**: Socket.io, Nodemailer, Redis (for OTP and password reset)  
+- **Others**: Socket.io, Nodemailer, Redis (for OTP and forget password)  
 
 ---
 
